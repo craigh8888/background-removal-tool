@@ -63,7 +63,7 @@ You have two options to experience this project:
 
 ### Note on Node Modules
 
-- If you encounter issues or if you've made changes to `package.json`, you might need to reinstall the Node packages. Use `npm install` (not `npx install`; `npx` is for executing package binaries) in the project directory to ensure all dependencies are up to date.
+- If you encounter issues or if you've made changes to `package.json`, you might need to reinstall the Node packages. Use `npm install`
 
 ## Contributing
 
