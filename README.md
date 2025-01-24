@@ -61,10 +61,6 @@ You have two options to experience this project:
      ```
    - Open the provided URL in your browser to use the tool.
 
-### Note on Node Modules
-
-- If you encounter issues or if you've made changes to `package.json`, you might need to reinstall the Node packages. Use `npm install`
-
 ## Contributing
 
 We welcome contributions! If you have ideas for improvements or find any bugs, please open an issue or submit a pull request.
