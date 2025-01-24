@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Transparency Converter</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .container {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 20px;
+            width: 80%;
+            max-width: 800px;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .image-container {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+        .image-wrapper {
+            position: relative;
+            width: 45%;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .image-wrapper img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .before, .after {
+            text-align: center;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .controls {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        input[type="file"], input[type="color"] {
+            margin: 10px 0;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .before-image, .after-image {
+            background-image: linear-gradient(45deg, #ccc 25%, transparent 25%), 
+                              linear-gradient(-45deg, #ccc 25%, transparent 25%),
+                              linear-gradient(45deg, transparent 75%, #ccc 75%),
+                              linear-gradient(-45deg, transparent 75%, #ccc 75%);
+            background-size: 20px 20px;
+            background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+        }
+        .description {
+            text-align: justify;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        button#processButton {
+            margin-bottom: 2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Image Transparency Converter</h1>
+        <div class="description">
+            <p><strong>Why Use This Tool?</strong></p>
+            <p>Our Image Transparency Converter is perfect for those in need of precise image manipulation. It's tailored for designers, developers, and anyone looking to:</p>
+            <ul>
+                <li>Remove backgrounds to make images transparent</li>
+                <li>Convert specific colours to transparency for logo isolation or image repurposing</li>
+                <li>Prepare images for web use where transparency is crucial for overlays or designs</li>
+            </ul>
+        </div>
+        <div class="image-container">
+            <div class="image-wrapper before-image">
+                <img id="beforeImage" src="" alt="Before Image">
+                <div class="before">Before</div>
+            </div>
+            <div class="image-wrapper after-image">
+                <img id="afterImage" src="" alt="After Image">
+                <div class="after">After</div>
+            </div>
+        </div>
+        <div class="controls">
+            <input type="file" id="fileInput" accept=".png, .jpg, .jpeg">
+            <label for="colorSelect">Select Color for Transparency:</label>
+            <input type="color" id="colorSelect" value="#FFFFFF">
+            <button id="processButton">Process Image</button>
+            <button id="downloadButton">Download Image</button>
+        </div>
+
+        <div class="description">
+            <p><strong>Why We Created It:</strong></p>
+            <p>We noticed a lack of free, customisable tools for image transparency conversion. Existing solutions were either paid, lacked precision, or didn't provide the control needed for professional projects. We developed this tool using:</p>
+            <ul>
+                <li>HTML5 and CSS3 for an intuitive user interface</li>
+                <li>JavaScript with the Canvas API to handle real-time image processing</li>
+                <li>Node.js 'canvas' module for server-side image manipulation, ensuring compatibility with various image formats</li>
+            </ul>
+            <p>This tool lets you choose any colour from your image to transform into transparency, you can even use the colour picker provided. Offering tailored manipulation for your creative or technical needs.</p>
+        </div>
+
+        <div class="description">
+            <p><strong>Development Specifications:</strong></p>
+            <ul>
+                <li><strong>Image Loading:</strong> Utilises FileReader and `loadImage` from the Canvas library to handle asynchronous image file uploads.</li>
+                <li><strong>Pre-processing:</strong> Applies a slight blur to reduce noise in images before transparency conversion. The aim is to reduce the overall number of colors in the image for better results in color manipulation.</li>
+                <li><strong>Colour Manipulation:</strong> Converts selected colors to transparency using color distance calculations in the Lab color space for precision. This involves converting RGBA values to the Lab color space for more realistic color processing, closely mimicking human vision.</li>
+                <li><strong>Event Handling:</strong> Manages DOM interactions for file selection, color picking, processing, and downloading the modified image.</li>
+                <li><strong>Performance:</strong> Efficiently handles pixel-level operations on the canvas, ensuring responsive performance even with large images.</li>
+                <li><strong>Safety:</strong> Your image is processed securely on our servers and is not stored after processing.</li>
+                <li><strong>Open Source:</strong> The base code for this tool has been released as open-source; you can view it on GitHub here, so feel free to expand and improve upon it.</li>
+            </ul>
+
+        </div>
+
+       
+    
+              
+    </div>
+    <script src="../dist/main.js"></script>
+</body>
+</html>
